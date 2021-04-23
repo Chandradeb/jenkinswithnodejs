@@ -1,0 +1,28 @@
+pipeline {
+	agent any
+	tools {nodejs "MyNode"}		
+	stages {
+		stage("Check Node Version"){
+			steps {
+			cmd "node --version"
+			}
+		}
+		stage("install dependencies"){
+			steps {
+			cmd "npm --version"
+			cmd "npm install"
+			}
+		}
+		stage("Test"){
+			steps {
+			cmd "node app.js"
+		}
+		}
+		stage("Release the version"){
+			steps {
+			echo "Release the Version"
+			}
+		}
+	}
+}
+© 2021 GitHub, Inc.
